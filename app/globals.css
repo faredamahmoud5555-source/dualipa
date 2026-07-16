@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fffdf9;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #ff4fa0;
+  color: #fffdf9;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ece7fd;
+}
+::-webkit-scrollbar-thumb {
+  background: #4f6bff;
+  border-radius: 999px;
+  border: 2px solid #ece7fd;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #4f6bff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-dark {
+  background: rgba(21, 17, 42, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.halftone {
+  background-image: radial-gradient(rgba(21, 17, 42, 0.12) 1.4px, transparent 1.4px);
+  background-size: 10px 10px;
+}
+
+.eyebrow {
+  font-family: var(--font-space-grotesk);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes conic-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-conic {
+  animation: conic-spin 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
